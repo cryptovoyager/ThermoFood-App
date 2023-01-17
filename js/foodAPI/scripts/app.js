@@ -1,7 +1,10 @@
-var foodBtn = document.querySelector(".randomFood")
-
+var foodBtn = document.querySelector(".randomFood");
 
 function getFood() {
+  var dishesIndex = Math.floor(Math.random() * coolDays.length);
+  var tag = coolDays[dishesIndex];
+  console.log(tag);
+
   const options = {
     method: "GET",
     headers: {
@@ -11,14 +14,16 @@ function getFood() {
   };
 
   fetch(
-    "https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes",
+    `https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=${tag}`,
+    //"https://tasty.p.rapidapi.com/tags/list`,
     options
   )
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      var index = Math.floor(Math.random() * data.results.length);
+      console.log(data.results[index].name);
     });
 }
 
