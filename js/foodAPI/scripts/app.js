@@ -1,5 +1,7 @@
 var foodBtn = document.querySelector(".randomFood");
 
+var myArr = []
+
 function getFood() {
   var dishesIndex = Math.floor(Math.random() * coolDays.length);
   var tag = coolDays[dishesIndex];
@@ -14,8 +16,8 @@ function getFood() {
   };
 
   fetch(
-    `https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=${tag}`,
-    //"https://tasty.p.rapidapi.com/tags/list`,
+    //`https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=${tag}`,
+    "https://tasty.p.rapidapi.com/tags/list",
     options
   )
     .then(function (response) {
@@ -24,7 +26,14 @@ function getFood() {
     .then(function (data) {
       var index = Math.floor(Math.random() * data.results.length);
       console.log(data.results[index].name);
+      for (x of data.results) {
+        console.log(x.name)
+        myArr.push(x.name)
+      }
+      console.log(myArr)
     });
+
+
 }
 
 foodBtn.addEventListener("click", getFood);
