@@ -26,7 +26,7 @@ var hotDays = [
   "ice_cube_tray",
   "dominican",
   "grill",
-  "caribbean",
+  "caribbean"
 ];
 var warmDays = [
   "brazilian",
@@ -61,9 +61,7 @@ var warmDays = [
   "peruvian",
   "dominican",
   "grill",
-  "caribbean",
-  "peppermint_pattie",
-  "sparkling_rose",
+  "caribbean"
 ];
 var coolDays = [
   "brazilian",
@@ -93,9 +91,7 @@ var coolDays = [
   "peruvian",
   "grill",
   "thanksgiving",
-  "caribbean",
-  "peppermint_pattie",
-  "sparkling_rose",
+  "caribbean"
 ];
 var coldDays = [
   "brazilian",
@@ -118,7 +114,7 @@ var coldDays = [
   "laotian",
   "german",
   "hershey_s",
-  "thanksgiving",
+  "thanksgiving"
 ];
 var breakFasts = [
   "chop_champ",
@@ -126,9 +122,8 @@ var breakFasts = [
   "mc_breakfast_savory",
   "mc_breakfast_easy",
   "breakfast",
-  "peppermint_pattie",
-  "sparkling_rose",
 ];
+
 
 var noLocation = [
   "brazilian",
@@ -166,69 +161,5 @@ var noLocation = [
   "caribbean",
   "german",
   "hershey_s",
-  "thanksgiving",
-  "nynm_protein",
-  "tips_pros",
-  "spring_kitchen",
-  "west_african",
-  "taiwanese",
-  "lebanese",
-  "indigenous",
-  "mccormick_ugc_one_pot_slow",
-  "summer_holiday",
-  "fourth_drink",
-  "uber_game_day_ribs",
-  "thanksgiving_sides",
-  "thanksgiving_desserts",
-  "shoppable_recipes_thanksgiving",
-  "shoppable_recipes_seasonal_desserts",
-  "butterfinger_other_recipes",
-  "tasty_charcuterie_quizzes",
-  "keto",
-  "mccormick_world_hearty",
-  "mccormick_world_desserts",
-  "dole_sweet_treats",
-  "mccormick_holiday_mains",
-  "dole_snacks",
-  "dole_hearty_meals",
-  "dole_beverages",
-  "paper_bowls",
-  "plastic_wrap",
-  "baking_kit",
-  "chefs_knife",
-  "measuring_spoons",
-  "microplane",
-  "one_top_app_seafood",
-  "one_top_app_veggies",
-  "pescatarian",
-  "club_house_seasoned_pro",
-  "qfp_baking",
-  "eko_video",
-  "srsly_sauv_blanc",
-  "tasty_ewd_tips",
-  "walmart_plus_holiday_2020",
-  "snickers",
-  "peppermint_pattie",
-  "sparkling_rose",
-  "juneteenth",
-  "blue",
-  "homemade_holiday",
-  "american",
-  "chinese",
-  "latin_american",
-  "comfort_food",
-  "desserts",
-  "snacks",
-  "bake",
-  "deep_fry",
-  "date_night",
-  "bbq",
-  "blender",
-  "broiler",
-  "food_processor",
-  "hand_mixer",
-  "slow_cooker",
-  "indulgent_sweets",
-  "no_bake_desserts",
-  "special_occasion",
+  "thanksgiving"
 ];

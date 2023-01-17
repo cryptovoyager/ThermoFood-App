@@ -34,8 +34,9 @@ function getApi(position) {
 }
 
 function getFood(temperature, city) {
-  var dishesIndex = Math.floor(Math.random() * coolDays.length);
-  var tag = coolDays[dishesIndex];
+  var dishesIndex = Math.floor(Math.random() * noLocation.length);
+  console.log(dishesIndex)
+  var tag = noLocation[dishesIndex];
   console.log(tag);
 
   const options = {
@@ -61,7 +62,24 @@ function getFood(temperature, city) {
       <b>Temperature: </b> ${temperature} C°<br>
       <b>Suggested Dish: </b> ${data.results[index].name}<br>
       <b>Dish Description: </b> ${data.results[index].description}<br>
-      <img src=${data.results[index].thumbnail_url} width=200px height=200px>`;
+      <img src=${data.results[index].thumbnail_url} width=200px height=200px><br>
+      <h2><u>Ingredients</u></h2>
+      <ul>
+      <li>${data.results[index].sections[0].components[0].raw_text}</li>
+      <li>${data.results[index].sections[0].components[1].raw_text}</li>
+      <li>${data.results[index].sections[0].components[2].raw_text}</li>
+      <li>${data.results[index].sections[0].components[3].raw_text}</li>
+      <li>${data.results[index].sections[0].components[4].raw_text}</li>
+      </ul>
+      <h2><u>Instructions</u></h2>
+      <ul>
+      <li>${data.results[index].instructions[0].display_text}</li>
+      <li>${data.results[index].instructions[1].display_text}</li>
+      <li>${data.results[index].instructions[2].display_text}</li>
+      <li>${data.results[index].instructions[3].display_text}</li>
+      <li>${data.results[index].instructions[4].display_text}</li>
+      </ul>`;;
+      
     });
 }
 
