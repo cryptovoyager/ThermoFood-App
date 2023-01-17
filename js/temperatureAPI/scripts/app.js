@@ -3,7 +3,7 @@ var dummyText = document.getElementById("dummy");
 
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(getApi);
+    navigator.geolocation.getCurrentPosition(getApi, denial);
   } else {
     dummyText.innerHTML = "Geolocation is not supported by this browser.";
   }
@@ -17,7 +17,9 @@ function showPosition(position) {
     position.coords.longitude;
 }
 
-
+function denial() {
+  alert('deny');
+}
 
 function getApi(position) {
     var latitude = position.coords.latitude;
@@ -30,7 +32,8 @@ function getApi(position) {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
+        console.log(data.city.name);
+        console.log(data.list[0].main.temp);
       });
   }
 
