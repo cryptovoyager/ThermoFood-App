@@ -100,7 +100,7 @@ function getFood(temperature, city) {
       <b>Temperature: </b> ${temperature} C°<br>
       <b>Suggested Dish: </b> ${data.results[index].name}<br>
       <b>Dish Description: </b> ${data.results[index].description}<br>
-      <img src=${data.results[index].thumbnail_url} width=200px height=200px><br>
+      <img src=${data.results[index].thumbnail_url} width=500px height=500px><br>
       <h2><u>Ingredients</u></h2>
       <ul id="ingredientsList">
       </ul>
