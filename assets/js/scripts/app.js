@@ -1,5 +1,6 @@
 var locBtn = document.querySelector(".location");
 var dummyText = document.getElementById("dummy");
+const key = "628d57f32262d7f6c272be5df6242e8e"
 
 
 function getLocation() {
@@ -11,8 +12,10 @@ function getLocation() {
 }
 
 function denyLocation() {
-  alert("deny");
+  alert("We need your location");
 }
+//TODO ask manual weather if user denies location on device
+
 
 function getApi(position) {
   var latitude = position.coords.latitude;
@@ -126,3 +129,4 @@ function getFood(temperature, city) {
 }
 
 locBtn.addEventListener("click", getLocation);
+// TODO safe to local storage past recipies
