@@ -1,6 +1,8 @@
 var dislikeBtn = document.querySelector("#dislike");
 var mainImage = document.getElementById("mainImage");
-
+var ingFirstList = document.querySelectorAll("#quickIngredients");
+var insFirstList = document.querySelectorAll("#quickInstructions");
+console.log(ingFirstList);
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -111,6 +113,14 @@ function getFood(temperature, city) {
       // </ol>`;
       mainImage.setAttribute("src", data.results[index].thumbnail_url)
       //var ingredientsList = document.getElementById("ingredientsList")
+      for (var i = 0; i < 3; i++) {
+        ingFirstList[i].textContent = ingredients[i];
+      }
+
+      for (var i = 0; i < 3; i++) {
+        insFirstList[i].textContent = instructions[i];
+      }
+      
       for (var ingredient of ingredients) {
         var listItem = document.createElement("li")
         listItem.textContent = ingredient
