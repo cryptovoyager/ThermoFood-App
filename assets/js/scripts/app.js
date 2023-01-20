@@ -1,7 +1,8 @@
-var locBtn = document.querySelector(".location");
-var dummyText = document.getElementById("dummy");
-const key = "628d57f32262d7f6c272be5df6242e8e"
-
+var dislikeBtn = document.querySelector("#dislike");
+var mainImage = document.getElementById("mainImage");
+var ingFirstList = document.querySelectorAll("#quickIngredients");
+var insFirstList = document.querySelectorAll("#quickInstructions");
+console.log(ingFirstList);
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -99,34 +100,43 @@ function getFood(temperature, city) {
       }
       console.log("Ingredients List:", ingredients);
       console.log("Instructions:", instructions);
-      dummyText.innerHTML = `<b>City: </b> ${city}<br>
-      <b>Temperature: </b> ${temperature} C°<br>
-      <b>Suggested Dish: </b> ${data.results[index].name}<br>
-      <b>Dish Description: </b> ${data.results[index].description}<br>
-      <img src=${data.results[index].thumbnail_url} width=200px height=200px><br>
-      <h2><u>Ingredients</u></h2>
-      <ul id="ingredientsList">
-      </ul>
-      <h2><u>Instructions</u></h2>
-      <ol id="instructionList">
-      </ol>`;
-      var ingredientsList = document.getElementById("ingredientsList")
+      // dummyText.innerHTML = `<b>City: </b> ${city}<br>
+      // <b>Temperature: </b> ${temperature} C°<br>
+      // <b>Suggested Dish: </b> ${data.results[index].name}<br>
+      // <b>Dish Description: </b> ${data.results[index].description}<br>
+      // <img src=${data.results[index].thumbnail_url} width=500px height=500px><br>
+      // <h2><u>Ingredients</u></h2>
+      // <ul id="ingredientsList">
+      // </ul>
+      // <h2><u>Instructions</u></h2>
+      // <ol id="instructionList">
+      // </ol>`;
+      mainImage.setAttribute("src", data.results[index].thumbnail_url)
+      //var ingredientsList = document.getElementById("ingredientsList")
+      for (var i = 0; i < 3; i++) {
+        ingFirstList[i].textContent = ingredients[i];
+      }
+
+      for (var i = 0; i < 3; i++) {
+        insFirstList[i].textContent = instructions[i];
+      }
+      
       for (var ingredient of ingredients) {
         var listItem = document.createElement("li")
         listItem.textContent = ingredient
         console.log(listItem)
-        ingredientsList.append(listItem)
+        //ingredientsList.append(listItem)
       }
 
-      var instructionList = document.getElementById("instructionList")
+      //var instructionList = document.getElementById("instructionList")
       for (var instruction of instructions) {
         var listItem = document.createElement("li")
         listItem.textContent = instruction
         console.log(listItem)
-        instructionList.append(listItem)
+        //instructionList.append(listItem)
       }
     });
 }
 
-locBtn.addEventListener("click", getLocation);
+dislikeBtn.addEventListener("click", getLocation);
 // TODO safe to local storage past recipies
