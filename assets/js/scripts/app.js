@@ -8,14 +8,15 @@ function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(getApi, denyLocation);
   } else {
-    dummyText.innerHTML = "Geolocation is not supported by this browser.";
+    dummyText.innerHTML = "This app requires Geolocation to function";
   }
 }
 
 function denyLocation() {
-  alert("We need your location");
+  alert("This app requires Geolocation to function");
 }
-//TODO ask manual weather if user denies location on device
+
+//TODO improvement proposal: ask manual weather or location if user denies location on device
 
 
 function getApi(position) {
