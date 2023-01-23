@@ -137,6 +137,6 @@ function getFood(temperature, city) {
       }
     });
 }
-
+getLocation()
 dislikeBtn.addEventListener("click", getLocation);
 // TODO safe to local storage past recipies
