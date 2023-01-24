@@ -1,13 +1,14 @@
 var dislikeBtn = document.querySelector("#dislike");
-var mainImage = document.getElementById("mainImage");
-var ingFirstList = document.querySelectorAll("#quickIngredients");
-var insFirstList = document.querySelectorAll("#quickInstructions");
-console.log(ingFirstList);
-
 var cityAndTemperatureEL = document.getElementById("cityAndTemperature");
+var ingredientsBtn = document.getElementById("ingredients");
+var ingrCloseModal = document.querySelector("#ingrCloseModal")
+
 var mainImageEL = document.getElementById("mainImage"); //change image by api result
-var ingredientsEL = document.getElementById("ingredients"); //change ingredients by API result
-var instructionEL = document.getElementById("instructions"); //change instructions by APi result
+
+function showIngredientsHandler() {
+  var ingModal = document.getElementById("ingredientsModal")
+  ingModal.classList.toggle("hidden")
+}
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -80,8 +81,8 @@ function getFood(temperature, city) {
     })
     .then(function (data) {
       var index = Math.floor(Math.random() * data.results.length);
-      console.log(index)
-
+      console.log(index);
+      console.log(data.results);
       console.log(data.results[index]);
       console.log(data.results[index].description)
       while (
@@ -121,20 +122,7 @@ function getFood(temperature, city) {
       }
       console.log("Ingredients List:", ingredients);
       console.log("Instructions:", instructions);
-      // dummyText.innerHTML = `<b>City: </b> ${city}<br>
-      // <b>Temperature: </b> ${temperature} C°<br>
-      // <b>Suggested Dish: </b> ${data.results[index].name}<br>
-      // <b>Dish Description: </b> ${data.results[index].description}<br>
-      // <img src=${data.results[index].thumbnail_url} width=500px height=500px><br>
-      // <h2><u>Ingredients</u></h2>
-      // <ul id="ingredientsList">
-      // </ul>
-      // <h2><u>Instructions</u></h2>
-      // <ol id="instructionList">
-      // </ol>`;
-      //mainImage.setAttribute("src", data.results[index].thumbnail_url)
       mainImageEL.setAttribute("src", data.results[index].thumbnail_url);
-      //var ingredientsList = document.getElementById("ingredientsList")
       var dishName = document.getElementById("dishName");
       var cals = document.getElementById("calories");
       var proteins = document.getElementById("proteins");
@@ -180,4 +168,6 @@ function getFood(temperature, city) {
 }
 getLocation();
 dislikeBtn.addEventListener("click", getLocation);
+ingredientsBtn.addEventListener("click", showIngredientsHandler);
+ingrCloseModal.addEventListener("click",showIngredientsHandler)
 // TODO safe to local storage past recipies
