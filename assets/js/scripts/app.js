@@ -96,7 +96,7 @@ function getFood(temperature, city) {
       }
       
 
-      console.log(data.results[index].instructions);
+      
       for (var i = 0; i < data.results[index].instructions.length; i++) {
         console.log(
           "Instructions " + (i + 1) + ": " + data.results[index].instructions[i].display_text
@@ -121,28 +121,41 @@ function getFood(temperature, city) {
       //mainImage.setAttribute("src", data.results[index].thumbnail_url)
       mainImageEL.setAttribute("src", data.results[index].thumbnail_url)
       //var ingredientsList = document.getElementById("ingredientsList")
-      for (var i = 0; i < 3; i++) {
-        ingFirstList[i].textContent = ingredients[i];
-      }
+      var dishName = document.getElementById("dishName");
+      var cals = document.getElementById("calories");
+      var proteins = document.getElementById("proteins");
+      var fats = document.getElementById("fat");
+      var carbs = document.getElementById("carbs");
+      var description = document.getElementById("description");
+      dishName.innerHTML = "<b>Name: </b>" + data.results[index].name
+      cals.innerHTML = "<b>Calories: </b>" + data.results[index].nutrition.calories
+      proteins.innerHTML = "<b>Proteins: </b>" + data.results[index].nutrition.protein
+      fats.innerHTML = "<b>Fats: </b>" + data.results[index].nutrition.fat
+      carbs.innerHTML = "<b>Carbohydrates: </b>" + data.results[index].nutrition.carbohydrates 
+      description.innerHTML = data.results[index].description
+      console.log(data.results[index].name);
+      // for (var i = 0; i < 3; i++) {
+      //   ingFirstList[i].textContent = ingredients[i];
+      // }
 
-      for (var i = 0; i < 3; i++) {
-        insFirstList[i].textContent = instructions[i];
-      }
+      // for (var i = 0; i < 3; i++) {
+      //   insFirstList[i].textContent = instructions[i];
+      // }
       
-      for (var ingredient of ingredients) {
-        var listItem = document.createElement("li")
-        listItem.textContent = ingredient
-        console.log(listItem)
-        //ingredientsList.append(listItem)
-      }
+      // for (var ingredient of ingredients) {
+      //   var listItem = document.createElement("li")
+      //   listItem.textContent = ingredient
+      //   console.log(listItem)
+      //   //ingredientsList.append(listItem)
+      // }
 
-      //var instructionList = document.getElementById("instructionList")
-      for (var instruction of instructions) {
-        var listItem = document.createElement("li")
-        listItem.textContent = instruction
-        console.log(listItem)
-        //instructionList.append(listItem)
-      }
+      // //var instructionList = document.getElementById("instructionList")
+      // for (var instruction of instructions) {
+      //   var listItem = document.createElement("li")
+      //   listItem.textContent = instruction
+      //   console.log(listItem)
+      //   //instructionList.append(listItem)
+      // }
     });
 }
 getLocation()
