@@ -59,7 +59,7 @@ function getFood(temperature, city) {
   }
   var dishesIndex = Math.floor(Math.random() * dishes.length);
   console.log(dishesIndex);
-  var tag = noLocation[dishesIndex];
+  var tag = dishes[dishesIndex];
   console.log(tag);
 
   const options = {
@@ -80,7 +80,16 @@ function getFood(temperature, city) {
     })
     .then(function (data) {
       var index = Math.floor(Math.random() * data.results.length);
+      if (data.results[index].description == "" || data.results[index].description === null) {
+        console.log(data.results[index])
+        while (data.results[index].description == "") {
+          console.log(data.results[index])
+          index = Math.floor(Math.random() * data.results.length);
+        }
+      }
+
       console.log(data.results[index]);
+      console.log(data.results[index].sections)
       console.log("components", data.results[index].sections[0].components);
       for (var i = 0; i < data.results[index].sections.length; i++) {
         console.log("section " + data.results[index].sections[i].name);
@@ -128,10 +137,10 @@ function getFood(temperature, city) {
       var carbs = document.getElementById("carbs");
       var description = document.getElementById("description");
       dishName.innerHTML = "<b>Name: </b>" + data.results[index].name
-      cals.innerHTML = "<b>Calories: </b>" + data.results[index].nutrition.calories
-      proteins.innerHTML = "<b>Proteins: </b>" + data.results[index].nutrition.protein
-      fats.innerHTML = "<b>Fats: </b>" + data.results[index].nutrition.fat
-      carbs.innerHTML = "<b>Carbohydrates: </b>" + data.results[index].nutrition.carbohydrates 
+      cals.innerHTML = "<b>Calories: </b>" + data.results[index].nutrition.calories + "kcals"
+      proteins.innerHTML = "<b>Proteins: </b>" + data.results[index].nutrition.protein + " g"
+      fats.innerHTML = "<b>Fats: </b>" + data.results[index].nutrition.fat + " g"
+      carbs.innerHTML = "<b>Carbohydrates: </b>" + data.results[index].nutrition.carbohydrates + " g"
       description.innerHTML = data.results[index].description
       console.log(data.results[index].name);
       // for (var i = 0; i < 3; i++) {
