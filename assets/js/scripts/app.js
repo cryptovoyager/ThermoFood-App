@@ -4,6 +4,12 @@ var ingFirstList = document.querySelectorAll("#quickIngredients");
 var insFirstList = document.querySelectorAll("#quickInstructions");
 console.log(ingFirstList);
 
+var cityAndTemperatureEL = document.getElementById('cityAndTemperature');
+var mainImageEL = document.getElementById("mainImage") //change image by api result
+var ingredientsEL = document.getElementById("ingredients") //change ingredients by API result
+var instructionEL = document.getElementById("instructions") //change instructions by APi result
+
+
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(getApi, denyLocation);
@@ -13,7 +19,7 @@ function getLocation() {
 }
 
 function denyLocation() {
-  alert("This app requires Geolocation to function");
+  alert("This app requires Geolocation to function"); // do not use alert
 }
 
 //TODO improvement proposal: ask manual weather or location if user denies location on device
@@ -34,7 +40,7 @@ function getApi(position) {
       console.log(data.list[0].main.temp);
       var temperature = parseFloat(data.list[0].main.temp);
       var city = data.city.name;
-
+      cityAndTemperatureEL.innerHTML = city + "  " + temperature;
       getFood(temperature, city);
     });
 }
@@ -112,7 +118,8 @@ function getFood(temperature, city) {
       // <h2><u>Instructions</u></h2>
       // <ol id="instructionList">
       // </ol>`;
-      mainImage.setAttribute("src", data.results[index].thumbnail_url)
+      //mainImage.setAttribute("src", data.results[index].thumbnail_url)
+      mainImageEL.setAttribute("src", data.results[index].thumbnail_url)
       //var ingredientsList = document.getElementById("ingredientsList")
       for (var i = 0; i < 3; i++) {
         ingFirstList[i].textContent = ingredients[i];
