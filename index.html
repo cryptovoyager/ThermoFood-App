@@ -14,6 +14,11 @@
     <script src="assets/js/scripts/dishesList.js" defer></script>
     <script src="assets/js/scripts/apiKey.js" defer></script>
     <script src="assets/js/scripts/app.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
     <link rel="icon" type="x-image/icon" href="assets/images/thermofood.png" />
   </head>
   <body>
@@ -200,17 +205,11 @@
                     class="rounded-t-lg border-t-2 border-gray-100 bg-gray-50 px-6 pt-10 pb-8 sm:px-10 sm:py-10"
                   >
                     <div class="mt-5 flex items-center justify-center">
-                      <div
-                        class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full hidden"
-                        role="status"
-                      >
-                        <span class="visually-hidden">Loading...</span>
-                      </div>
                       <img
                         id="mainImage"
                         class="relative z-10 rounded-lg shadow-xl object-fill h-96 w-120"
                         src="assets/images/thermofood.png"
-                        alt="hamburger"
+                        alt="thermofoodLogo"
                       />
                     </div>
                     <div class="mt-5 flex items-center justify-center">
@@ -218,7 +217,7 @@
                         <button
                           id="like"
                           type="button"
-                          class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 hover:bg-red-400"
+                          class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 hover:bg-red-400 hover:border-red-800 hover:text-red-800"
                         >
                           <i class="fa-regular fa-heart"></i>
                         </button>

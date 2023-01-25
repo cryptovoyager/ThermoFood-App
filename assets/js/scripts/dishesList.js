@@ -1,6 +1,5 @@
 var hotDays = [
   "brazilian",
-  "french",
   "indian",
   "low_carb",
   "fourth_of_july",
@@ -15,6 +14,7 @@ var hotDays = [
   "puerto_rican",
   "summer_drink",
   "italian",
+  "summer",
   "greek",
   "mexican",
   "freezer",
@@ -28,6 +28,7 @@ var hotDays = [
   "caribbean",
 ];
 var warmDays = [
+  "summer",
   "brazilian",
   "seafood",
   "indian",
@@ -62,10 +63,12 @@ var warmDays = [
   "sparkling_rose",
 ];
 var coolDays = [
+  "fall",
+  "holiday_cookie_hacks",
   "french",
   "seafood",
   "indian",
-  "thai",
+  "spring_kitchen",
   "christmas",
   "weeknight",
   "cheese_grater",
@@ -89,6 +92,9 @@ var coolDays = [
   "caribbean",
   "peppermint_pattie",
   "sparkling_rose",
+  "winter",
+  "almond_joy",
+  "snickers",
 ];
 var coldDays = [
   "french",
@@ -109,5 +115,25 @@ var coldDays = [
   "german",
   "hershey_s",
   "thanksgiving",
+  "winter",
+  "holiday_cookie_hacks",
+  "almond_joy",
+  "snickers",
 ];
 
+var breakFasts = [
+  "mc_breakfast_sweet",
+  "mc_breakfast_savory",
+  "mc_breakfast_easy",
+  "breakfast",
+  "one_top_app_eggs"
+];
+
+var lunch = ["brunch", "grill", "bbq", "nynm_meal_prep", "lunch"];
+
+var dinner = [
+  "weeknight",
+  "date_night",
+  "shoppable_recipes_holiday_dinners",
+  "shoppable_recipes_family_dinner",
+];
