@@ -37,30 +37,8 @@
           >
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">
-                <ul role="list" class="space-y-4">
-                  <li class="flex items-start">
-                    <div class="flex-shrink-0">
-                      <!-- Heroicon name: outline/check -->
-                      <svg
-                        class="h-6 w-6 flex-shrink-0 text-green-500"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M4.5 12.75l6 6 9-13.5"
-                        />
-                      </svg>
-                    </div>
-                    <p class="ml-3 text-base font-medium text-gray-500">
-                      Pariatur quod similique
-                    </p>
-                  </li>
+                <ul id="ingredientsList" role="list" class="space-y-4">
+
                 </ul>
               </div>
             </div>
@@ -204,7 +182,7 @@
                         <button
                           id="like"
                           type="button"
-                          class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                          class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 hover:bg-red-400"
                         >
                           <i class="fa-regular fa-heart"></i>
                         </button>
@@ -214,7 +192,7 @@
                         <button
                           id="dislike"
                           type="button"
-                          class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                          class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 hover:bg-gray-200"
                         >
                           <i class="fa-solid fa-heart-crack"></i>
                         </button>

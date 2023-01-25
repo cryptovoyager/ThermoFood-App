@@ -1,13 +1,14 @@
 var dislikeBtn = document.querySelector("#dislike");
 var cityAndTemperatureEL = document.getElementById("cityAndTemperature");
 var ingredientsBtn = document.getElementById("ingredients");
-var ingrCloseModal = document.querySelector("#ingrCloseModal")
+var ingrCloseModal = document.querySelector("#ingrCloseModal");
+var ingredientsList = document.getElementById("ingredientsList");
 
 var mainImageEL = document.getElementById("mainImage"); //change image by api result
 
 function showIngredientsHandler() {
-  var ingModal = document.getElementById("ingredientsModal")
-  ingModal.classList.toggle("hidden")
+  var ingModal = document.getElementById("ingredientsModal");
+  ingModal.classList.toggle("hidden");
 }
 
 function getLocation() {
@@ -35,13 +36,14 @@ function getApi(position) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data)
+      console.log(data);
       console.log(data.city.name);
       console.log(data.list[0].main.temp);
       var temperature = parseFloat(data.list[0].main.temp);
       var city = data.city.name;
       var country = data.city.country;
-      cityAndTemperatureEL.innerHTML = city + ", "+ country + " | " + temperature + " C° ☀️";
+      cityAndTemperatureEL.innerHTML =
+        city + ", " + country + " | " + temperature + " C° ☀️";
       getFood(temperature, city);
     });
 }
@@ -66,7 +68,7 @@ function getFood(temperature, city) {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "0dfac9f714msh5befe054fe1ee58p1daa65jsn112fdff89b93",
+      "X-RapidAPI-Key": "a1190a5613mshb896d0d8d85cd92p117dddjsn28b788dac426",
       "X-RapidAPI-Host": "tasty.p.rapidapi.com",
     },
   };
@@ -84,14 +86,18 @@ function getFood(temperature, city) {
       console.log(index);
       console.log(data.results);
       console.log(data.results[index]);
-      console.log(data.results[index].description)
+      if (data.results.length === 0) {
+        getLocation();
+      }
+      console.log(data.results[index].description);
       while (
-        !data.results[index].description ||
         data.results[index].nutrition === undefined ||
         data.results[index].nutrition.calories === undefined
       ) {
         console.log(data.results[index]);
+        console.log(index)
         index = Math.floor(Math.random() * data.results.length);
+        console.log(index)
       }
 
       console.log(data.results[index]);
@@ -149,13 +155,15 @@ function getFood(temperature, city) {
       // for (var i = 0; i < 3; i++) {
       //   insFirstList[i].textContent = instructions[i];
       // }
-
-      // for (var ingredient of ingredients) {
-      //   var listItem = document.createElement("li")
-      //   listItem.textContent = ingredient
-      //   console.log(listItem)
-      //   //ingredientsList.append(listItem)
-      // }
+      ingredientsList.innerHTML = ""
+      for (var ingredient of ingredients) {
+        var listItem = document.createElement("li");
+        listItem.classList.add("flex");
+        listItem.classList.add("items-start")
+        listItem.innerHTML = `<div class="flex-shrink-0"> <svg class="h-6 w-6 flex-shrink-0 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none"           viewBox="0 0 24 24"           stroke-width="1.5"           stroke="currentColor"           aria-hidden="true"         >           <path             stroke-linecap="round"             stroke-linejoin="round"             d="M4.5 12.75l6 6 9-13.5"           />         </svg>       </div>       <p class="ml-3 text-base font-medium text-gray-500">         ${ingredient}       </p>`;
+        console.log(listItem);
+        ingredientsList.append(listItem);
+      }
 
       // //var instructionList = document.getElementById("instructionList")
       // for (var instruction of instructions) {
@@ -169,5 +177,5 @@ function getFood(temperature, city) {
 getLocation();
 dislikeBtn.addEventListener("click", getLocation);
 ingredientsBtn.addEventListener("click", showIngredientsHandler);
-ingrCloseModal.addEventListener("click",showIngredientsHandler)
+ingrCloseModal.addEventListener("click", showIngredientsHandler);
 // TODO safe to local storage past recipies
