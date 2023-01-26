@@ -6,7 +6,7 @@
 * [Getting Started](#getting-started)
 * [Apis](#apis)
 * [Future Features](#future-features)
-* <a href="https://raulmaya.github.io/ThermoFood-App/">Deployment</a>
+* <a href="https://cryptovoyager.github.io/ThermoFood-App/">Deployment</a>
 * [Credits](#credits)
 
 # ThermoFood-App
@@ -56,7 +56,7 @@ As a developer, you can use this app by following these steps:
 
 # Deployed Links
 
-* Github Pages Deployment (https://raulmaya.github.io/ThermoFood-App/)
+* Github Pages Deployment (https://cryptovoyager.github.io/ThermoFood-App/)
 
 # Credits
 * OpenWeatherMap API: The code uses this API to get the current temperature at the user's location. (https://openweathermap.org/) 
