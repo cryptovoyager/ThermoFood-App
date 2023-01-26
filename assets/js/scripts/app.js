@@ -169,15 +169,19 @@ function gettingDishes(dishes) {
           "<b>Carbohydrates: </b>" +
           data.results[index].nutrition.carbohydrates +
           " g";
-        if (!data.results[index].description) {
-          console.log("Empty");
+        if (!data.results[index].original_video_url) {
+          if (!data.results[index].description) {
+            description.innerHTML =
+              "There's no video nor description available for this dish, sorry for the trouble. Have a fun cooking while using ThermoFood App.";
+          } else {
+            description.innerHTML = data.results[index].description;
+          }
+        } else {
           console.log(data.results[index].original_video_url);
           description.innerHTML = `<video width="320" height="240" controls>
           <source src="${data.results[index].original_video_url}" type="video/mp4">
           <source src="${data.results[index].original_video_url}" type="video/ogg">
         </video>`;
-        } else {
-          description.innerHTML = data.results[index].description;
         }
 
         console.log(data.results[index].name);
