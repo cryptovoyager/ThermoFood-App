@@ -56,8 +56,7 @@ As a developer, you can use this app by following these steps:
 
 # Deployed Links
 
-GITHUB 
-
+* Github Pages Deployment (https://raulmaya.github.io/ThermoFood-App/)
 
 # Credits
 * OpenWeatherMap API: The code uses this API to get the current temperature at the user's location. (https://openweathermap.org/) 
