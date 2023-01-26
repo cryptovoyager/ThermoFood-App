@@ -169,7 +169,16 @@ function gettingDishes(dishes) {
           "<b>Carbohydrates: </b>" +
           data.results[index].nutrition.carbohydrates +
           " g";
-        description.innerHTML = data.results[index].description;
+        if (data.results[index].description == "") {
+          console.log("Empty")
+          description.innerHTML = `<video width="320" height="240" controls>
+          <source src="${data.results[index].original_video_url}" type="video/mp4">
+          <source src="${data.results[index].original_video_url}" type="video/ogg">
+        </video>`;
+        } else {
+          description.innerHTML = data.results[index].description;
+        }
+
         console.log(data.results[index].name);
         ingredientsList.innerHTML = "";
         for (var ingredient of ingredients) {
@@ -221,7 +230,7 @@ function denyLocation() {
   statusEl.innerHTML = today.format("DD-MMM-YYYY  hh:mm:ss A");
   if (hour >= 4 && hour <= 12) {
     var dishes = breakFasts;
-  } else if (hour >= 12 && hour <= 19) {
+  } else if (hour >= 12 && hour <= 21) {
     var dishes = lunch;
   } else {
     var dishes = dinner;
