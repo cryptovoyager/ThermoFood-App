@@ -169,8 +169,9 @@ function gettingDishes(dishes) {
           "<b>Carbohydrates: </b>" +
           data.results[index].nutrition.carbohydrates +
           " g";
-        if (data.results[index].description == "") {
-          console.log("Empty")
+        if (!data.results[index].description) {
+          console.log("Empty");
+          console.log(data.results[index].original_video_url);
           description.innerHTML = `<video width="320" height="240" controls>
           <source src="${data.results[index].original_video_url}" type="video/mp4">
           <source src="${data.results[index].original_video_url}" type="video/ogg">
