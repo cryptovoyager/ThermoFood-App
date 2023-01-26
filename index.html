@@ -19,7 +19,6 @@
     <script src="assets/js/scripts/dishesList.js" defer></script>
     <script src="assets/js/scripts/apiKey.js" defer></script>
     <script src="assets/js/scripts/app.js" defer></script>
-    <script src="assets/js/scripts/localStorage.js" defer></script>
     <link rel="icon" type="x-image/icon" href="assets/images/thermofood.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -185,7 +184,7 @@
                           <a
                             href="#"
                             id="ingredients"
-                            class="block w-full rounded-lg border border-transparent bg-white px-6 py-3 text-center text-base font-medium text-indigo-600 hover:bg- gray-50"
+                            class="block w-full rounded-lg border border-transparent bg-white px-6 py-3 text-center text-base font-medium text-indigo-600 hover:bg-gray-50"
                             aria-describedby="tier-hobby"
                             >Ingredients</a
                           >
@@ -246,6 +245,17 @@
                           <i class="fa-solid fa-heart-crack"></i>
                         </button>
                       </span>
+                      <div id="storageBtns" class="inline-flex hidden">
+                        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l">
+                          Prev
+                        </button>
+                        <button id="reset" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4">
+                          Reset
+                        </button>
+                        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r">
+                          Next
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -9,7 +9,9 @@ var instructionsList = document.getElementById("instructionsList");
 var likeBtn = document.getElementById("like");
 var urRecipies = document.getElementById("urRecipies");
 var back2App = document.getElementById("back2App");
-var mainImageEL = document.getElementById("mainImage"); 
+var mainImageEL = document.getElementById("mainImage");
+var storageBtns = document.getElementById("storageBtns");
+var resetBtn = document.getElementById("reset");
 
 var storeNames = [];
 var storeImages = [];
@@ -21,24 +23,40 @@ var storeDescriptions = [];
 var storeIng = [];
 var storeIns = [];
 
-localStorage.clear();
-
-function showFavorites() {
+function backToMain() {
+  storageBtns.classList.toggle("hidden");
+  likeBtn.classList.toggle("hidden");
+  dislikeBtn.classList.toggle("hidden");
   back2App.classList.toggle("hidden");
   urRecipies.classList.toggle("hidden");
-  console.log(localStorage.getItem("image"));
-  console.log(localStorage.getItem("name"));
-  console.log(localStorage.getItem("calories"));
-  console.log(localStorage.getItem("carbs"));
-  console.log(localStorage.getItem("proteins"));
-  console.log(localStorage.getItem("fats"));
-  console.log(localStorage.getItem("descriptions"));
-  console.log(localStorage.getItem("ings"));
-  console.log(localStorage.getItem("ins"));
+  getLocation();
+}
+
+function resetStorage() {
+  localStorage.clear();
+}
+
+function showFavorites() {
+  storageBtns.classList.toggle("hidden");
+  likeBtn.classList.toggle("hidden");
+  dislikeBtn.classList.toggle("hidden");
+  back2App.classList.toggle("hidden");
+  urRecipies.classList.toggle("hidden");
+  var image = localStorage.getItem("image");
+  var name = localStorage.getItem("name");
+  var calories = localStorage.getItem("calories");
+  var carbs = localStorage.getItem("carbs");
+  var proteins = localStorage.getItem("proteins");
+  var fats = localStorage.getItem("fats");
+  var desc = localStorage.getItem("descriptions");
+  var ings = localStorage.getItem("ings");
+  var ins = localStorage.getItem("ins");
+  console.log(image.split(","));
+  console.log(ins.split(" || "));
 }
 
 function savingRecipie(context, ingredients, instructions) {
-  storeImages.push(context.thumbnail_url)
+  storeImages.push(context.thumbnail_url);
   storeNames.push(context.name);
   storeCalories.push(context.nutrition.calories);
   storeCarbs.push(context.nutrition.carbohydrates);
@@ -46,7 +64,7 @@ function savingRecipie(context, ingredients, instructions) {
   storeFats.push(context.nutrition.fat);
   storeDescriptions.push(context.description);
   storeIng.push(ingredients + " || ");
-  storeIns.push(instructions  + " || ");
+  storeIns.push(instructions + " || ");
   localStorage.setItem("image", storeImages);
   localStorage.setItem("name", storeNames);
   localStorage.setItem("calories", storeCalories);
@@ -171,7 +189,10 @@ function gettingDishes(dishes) {
           instructionsList.append(listItem);
         }
         var context = data.results[index];
-        likeBtn.addEventListener("click", savingRecipie.bind(null, context, ingredients, instructions));
+        likeBtn.addEventListener(
+          "click",
+          savingRecipie.bind(null, context, ingredients, instructions)
+        );
       });
   }
 }
@@ -257,4 +278,5 @@ instructionsBtn.addEventListener("click", showInstructionsHandler);
 ingrCloseModal.addEventListener("click", showIngredientsHandler);
 insCloseModal.addEventListener("click", showInstructionsHandler);
 urRecipies.addEventListener("click", showFavorites);
-back2App.addEventListener("click", getLocation)
+back2App.addEventListener("click", backToMain);
+resetBtn.addEventListener("click", resetStorage);
