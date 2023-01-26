@@ -6,7 +6,7 @@
 * [Getting Started](#getting-started)
 * [Apis](#apis)
 * [Future Features](#future-features)
-* [Deployed links]
+* <a href="https://raulmaya.github.io/ThermoFood-App/">Deployment</a>
 * [Credits](#credits)
 
 # ThermoFood-App
