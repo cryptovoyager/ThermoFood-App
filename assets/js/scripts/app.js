@@ -7,9 +7,56 @@ var insCloseModal = document.querySelector("#insCloseModal");
 var ingredientsList = document.getElementById("ingredientsList");
 var instructionsList = document.getElementById("instructionsList");
 var likeBtn = document.getElementById("like");
-var urRecipies = document.getElementById("urRecipies")
+var urRecipies = document.getElementById("urRecipies");
+var back2App = document.getElementById("back2App");
+var mainImageEL = document.getElementById("mainImage"); 
 
-var mainImageEL = document.getElementById("mainImage"); //change image by api result
+var storeNames = [];
+var storeImages = [];
+var storeCalories = [];
+var storeCarbs = [];
+var storeProtein = [];
+var storeFats = [];
+var storeDescriptions = [];
+var storeIng = [];
+var storeIns = [];
+
+localStorage.clear();
+
+function showFavorites() {
+  back2App.classList.toggle("hidden");
+  urRecipies.classList.toggle("hidden");
+  console.log(localStorage.getItem("image"));
+  console.log(localStorage.getItem("name"));
+  console.log(localStorage.getItem("calories"));
+  console.log(localStorage.getItem("carbs"));
+  console.log(localStorage.getItem("proteins"));
+  console.log(localStorage.getItem("fats"));
+  console.log(localStorage.getItem("descriptions"));
+  console.log(localStorage.getItem("ings"));
+  console.log(localStorage.getItem("ins"));
+}
+
+function savingRecipie(context, ingredients, instructions) {
+  storeImages.push(context.thumbnail_url)
+  storeNames.push(context.name);
+  storeCalories.push(context.nutrition.calories);
+  storeCarbs.push(context.nutrition.carbohydrates);
+  storeProtein.push(context.nutrition.protein);
+  storeFats.push(context.nutrition.fat);
+  storeDescriptions.push(context.description);
+  storeIng.push(ingredients + " || ");
+  storeIns.push(instructions  + " || ");
+  localStorage.setItem("image", storeImages);
+  localStorage.setItem("name", storeNames);
+  localStorage.setItem("calories", storeCalories);
+  localStorage.setItem("carbs", storeCarbs);
+  localStorage.setItem("proteins", storeProtein);
+  localStorage.setItem("fats", storeFats);
+  localStorage.setItem("descriptions", storeDescriptions);
+  localStorage.setItem("ings", storeIng);
+  localStorage.setItem("ins", storeIns);
+}
 
 function gettingDishes(dishes) {
   var ingredients = [];
@@ -123,18 +170,8 @@ function gettingDishes(dishes) {
           listItem.innerHTML = `<div class="flex-shrink-0"> <svg class="h-6 w-6 flex-shrink-0 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none"           viewBox="0 0 24 24"           stroke-width="1.5"           stroke="currentColor"           aria-hidden="true"         >           <path             stroke-linecap="round"             stroke-linejoin="round"             d="M4.5 12.75l6 6 9-13.5"           />         </svg>       </div>       <p class="ml-3 text-base font-medium text-gray-500">         ${instruction}       </p>`;
           instructionsList.append(listItem);
         }
-
-        likeBtn.addEventListener("click", function () {
-          console.log("image",  data.results[index].thumbnail_url)
-          console.log("name: ",data.results[index].name);
-          console.log("calories: ", data.results[index].nutrition.calories);
-          console.log("carbs: ", data.results[index].nutrition.carbohydrates);
-          console.log("proteins: ", data.results[index].nutrition.protein);
-          console.log("fats: ", data.results[index].nutrition.fat);
-          console.log("description: ", data.results[index].description);
-          console.log("ings: ",ingredients);
-          console.log("ins: ",instructions);
-        });
+        var context = data.results[index];
+        likeBtn.addEventListener("click", savingRecipie.bind(null, context, ingredients, instructions));
       });
   }
 }
@@ -219,4 +256,5 @@ ingredientsBtn.addEventListener("click", showIngredientsHandler);
 instructionsBtn.addEventListener("click", showInstructionsHandler);
 ingrCloseModal.addEventListener("click", showIngredientsHandler);
 insCloseModal.addEventListener("click", showInstructionsHandler);
-// TODO safe to local storage past recipies
+urRecipies.addEventListener("click", showFavorites);
+back2App.addEventListener("click", getLocation)
